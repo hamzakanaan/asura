@@ -26,7 +26,15 @@ function SearchBar() {
   return (
     <form role="search" aria-label="Property search form">
       {/* Desktop Search Bar (md and up) */}
-      <div className="hidden md:flex border border-white/40 rounded-full items-center py-3 px-4">
+      <div 
+        className="hidden md:flex items-center py-3 px-6 mx-auto"
+        style={{
+          width: '1320px',
+          height: '82px',
+          borderRadius: '21px',
+          border: '2px solid #FFFFFF'
+        }}
+      >
         <div className="flex-1 min-w-0">
           <SearchField />
         </div>

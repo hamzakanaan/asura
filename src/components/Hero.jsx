@@ -84,16 +84,29 @@ function Hero() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Main Heading */}
-            <div className="mb-4 sm:mb-6 md:mb-8">
-              <h1 className="font-roboto text-[32px] sm:text-[48px] md:text-[60px] lg:text-[72px] font-black leading-none text-white"
-                  style={{ letterSpacing: '0%' }}>
-                Seamless Buying.
-                <br />
-                Profitable Selling.
-              </h1>
+            <div className="mb-4 sm:mb-6 md:mb-8 flex justify-center">
+              <div className="w-full max-w-[1320px] relative">
+                <h1 
+                  className="font-roboto text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                  style={{ 
+                    maxWidth: '733px',
+                    fontFamily: 'Roboto',
+                    fontWeight: 900,
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#FFFFFF'
+                  }}
+                >
+                  Seamless Buying.
+                  <br />
+                  Profitable Selling.
+                </h1>
+              </div>
             </div>
             {/* Search Bar Integration */}
-            <MemoizedSearchBar />
+            <div className="flex justify-center">
+              <MemoizedSearchBar />
+            </div>
           </div>
         </div>
       </div>

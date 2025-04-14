@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Reset menu state when location changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   return (
     <div className="absolute top-[41px] left-0 right-0 z-[100] px-4 sm:px-6 md:px-8">
@@ -96,13 +102,13 @@ function Navbar() {
             <div className="flex items-center space-x-4 pt-2 border-t border-gray-200">
               <Link 
                 to="/seller" 
-                className="flex-1 text-center py-1.5 text-green-700 hover:text-green-800 font-roboto text-base font-bold leading-none hover:bg-gray-100 transition-colors rounded-full"
+                className="flex-1 text-center py-1.5 text-[#04473A] hover:text-[#04473A]/80 font-roboto text-base font-bold leading-none hover:bg-gray-100 transition-colors rounded-full"
               >
                 Seller
               </Link>
               <Link 
                 to="/buyer" 
-                className="flex-1 text-center py-1.5 text-green-700 hover:text-green-800 font-roboto text-base font-bold leading-none hover:bg-gray-100 transition-colors rounded-full"
+                className="flex-1 text-center py-1.5 text-[#04473A] hover:text-[#04473A]/80 font-roboto text-base font-bold leading-none hover:bg-gray-100 transition-colors rounded-full"
               >
                 Buyer
               </Link>

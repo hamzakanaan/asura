@@ -101,12 +101,8 @@ const PropertyList = () => {
     }
   ];
 
-  const handleLoadMore = () => {
-    setVisibleProperties(prev => Math.min(prev + 3, properties.length));
-  };
-
   return (
-    <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 max-w-[1440px] mx-auto">
+    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-6 mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#00513B] text-center sm:text-left">
@@ -148,21 +144,21 @@ const PropertyList = () => {
         </div>
       </div>
 
-      {/* Property Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">
-        {properties.slice(0, visibleProperties).map(property => (
-          <PropertyCard key={property.id} property={property} />
+      {/* Property grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {properties.slice(0, visibleProperties).map((property, index) => (
+          <PropertyCard key={index} property={property} />
         ))}
       </div>
 
-      {/* Load More Button */}
+      {/* Load more button */}
       {visibleProperties < properties.length && (
-        <div className="flex justify-center mt-8 sm:mt-12">
-          <button 
-            onClick={handleLoadMore}
-            className="w-full sm:w-auto bg-white text-[#04473A] font-roboto text-base font-normal py-3 sm:py-4 px-6 sm:px-8 rounded-[10px] hover:bg-gray-50 transition-colors duration-300 shadow-sm"
+        <div className="text-center mt-8">
+          <button
+            onClick={() => setVisibleProperties(prev => prev + 6)}
+            className="px-8 py-3 bg-white text-[#00513B] rounded-full hover:bg-gray-50 transition-colors border border-gray-200"
           >
-            Load more
+            Load More
           </button>
         </div>
       )}
